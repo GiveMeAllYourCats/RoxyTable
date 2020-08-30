@@ -95,6 +95,7 @@ class Table {
 				let state = 'Empty'
 				if (payload.value === 1) state = 'Booked'
 				if (payload.value === 2) state = 'In-use'
+				this.redis.set(`table_${payload.table}`, payload.value, redis.print)
 				this.io.sockets.emit(
 					'infomessage',
 					`${socket.request.user.username} set Table ${payload.table} to ${state}`
@@ -114,6 +115,14 @@ class Table {
 		this.redis.on('error', function (error) {
 			throw new Error(error)
 		})
+
+		for (let index in this.tables) {
+			this.redis.get(`table_${index}`, (err, val) => {
+				if (val) {
+					this.tables[index] = val
+				}
+			})
+		}
 	}
 
 	createSessionStore() {
