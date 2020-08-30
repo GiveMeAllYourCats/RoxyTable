@@ -45,7 +45,6 @@ function listPage() {
 			var selector = $('input[data-table="' + index + '"]')
 			selector.prop('checked', false)
 			selector.eq(stateValue).prop('checked', true)
-			console.log(selector)
 		}
 		$.unblockUI()
 	})
