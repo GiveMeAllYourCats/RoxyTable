@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="/css/bulma.css" />
+		<link rel="stylesheet" type="text/css" href="/css/login.css" />
+		<link rel="stylesheet" type="text/css" href="/css/toastr.min.css" />
+	</head>
+
+	<body>
+		{% block body %} {% endblock %}
+		<script type="text/javascript" src="/js/jquery.js"></script>
+		<script type="text/javascript" src="/js/jquery.form.min.js"></script>
+		<script async type="text/javascript" src="/js/toastr.min.js"></script>
+		<script async type="text/javascript" src="/js/jquery.blockUI.js"></script>
+		<script async type="text/javascript" src="/js/base.js"></script>
+		<script>
+			errormessage = '{{ error }}'
+			successmessage = '{{ success }}'
+		</script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/js/instantclick.min.js" data-no-instant></script>
+		<script data-no-instant>
+			InstantClick.init()
+		</script>
+	</body>
+</html>

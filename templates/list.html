@@ -1,0 +1,60 @@
+{% extends './base.html' %} {% block title %}Table list{% endblock %} {% block body %}
+<section class="section">
+	<div class="container">
+		<h1 class="title">
+			Table list
+		</h1>
+		<p class="subtitle">
+			You are logged in as <strong>{{ passport.user }}</strong>, click <a href="/logout">here</a> to logout!
+		</p>
+
+		<div class="columns">
+			<div class="column"></div>
+			<div class="column">
+				Empty
+			</div>
+			<div class="column">
+				Booked
+			</div>
+			<div class="column">
+				In-use
+			</div>
+		</div>
+
+		{% for table in tables %}
+		<div class="columns">
+			<div class="column">
+				Table {{ loop.index }}
+			</div>
+			<div class="column">
+				<input
+					type="checkbox"
+					data-table="{{ loop.index0 }}"
+					data-value="0"
+					class="largerCheckbox"
+					name="checkBox"
+				/>
+			</div>
+			<div class="column">
+				<input
+					type="checkbox"
+					data-table="{{ loop.index0 }}"
+					data-value="1"
+					class="largerCheckbox"
+					name="checkBox"
+				/>
+			</div>
+			<div class="column">
+				<input
+					type="checkbox"
+					data-table="{{ loop.index0 }}"
+					data-value="2"
+					class="largerCheckbox"
+					name="checkBox"
+				/>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+{% endblock %}
